@@ -1,0 +1,26 @@
+{
+  "name": "hvz.io",
+  "author": {
+    "name": "Trezy",
+    "email": "tre@trezy.com",
+    "url": "http://trezy.com"
+  },
+  "license": "GPL-3.0",
+  "version": "0.1.0",
+  "homepage": "http://hvz.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trezy/hvz.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trezy/hvz.io/issues"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "grunt": "^0.4.4",
+    "grunt-contrib-imagemin": "^0.6.1",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "precommit-hook": "^0.4.1"
+  }
+}

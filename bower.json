@@ -1,0 +1,25 @@
+{
+  "name": "hvz.io",
+  "authors": [
+    {
+      "name": "Trezy",
+      "email": "tre@trezy.com",
+      "url": "http://trezy.com"
+    }
+  ],
+  "license": "GPL-3.0",
+  "version": "0.1.0",
+  "homepage": "https://hvz.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "backbone": "latest",
+    "handlebars": "latest",
+    "jquery": "latest"
+  }
+}
