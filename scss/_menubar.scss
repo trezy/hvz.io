@@ -1,0 +1,25 @@
+/*  Menu Bar
+ *  _menubar.scss
+ */
+
+menu {
+  @include radial-gradient ( ellipse farthest-side at 50% 0, rgba( 255, 255, 255, 0.3 ) 0%, rgba(0, 0, 0, 1 ) 100% );
+
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+
+  button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.625em;
+    padding: 0 .2em;
+
+    &.main-menu {
+      margin-left: -0.6em;
+    }
+  }
+}

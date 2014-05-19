@@ -1,0 +1,23 @@
+/*  Base Styles
+ *  _base.scss
+ */
+
+html, body {
+  font-family: 'SilentHell', sans-serif;
+  font-size: $baseFontSize;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Helper Classes */
+.pull-right {
+  display: block;
+  float: right;
+}
+
+@import 'loading';
+@import 'menubar';

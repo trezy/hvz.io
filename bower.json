@@ -20,6 +20,11 @@
   "devDependencies": {
     "backbone": "latest",
     "handlebars": "latest",
-    "jquery": "latest"
+    "jquery": "latest",
+    "jquery.qrcode": "latest",
+    "require-cs": "latest",
+    "require-handlebars-plugin": "latest",
+    "requirejs": "latest",
+    "underscore": "latest"
   }
 }

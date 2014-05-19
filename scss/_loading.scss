@@ -1,0 +1,23 @@
+/*  Loading
+ *  _loading.scss
+ */
+
+.loading {
+  font-size: 1rem;
+  position: relative;
+
+  &:before {
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &:after {
+    content: '';
+    font-size: 5em;
+  }
+}
