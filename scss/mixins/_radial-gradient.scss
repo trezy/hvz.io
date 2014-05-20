@@ -1,0 +1,9 @@
+@mixin radial-gradient ( $colorStops... ) {
+  $browserPrefixes: ( -moz-, -o-, -webkit- );
+
+  @each $browserPrefix in $browserPrefixes {
+    background-image: #{$browserPrefix}radial-gradient( #{$colorStops} );
+  };
+
+  background-image: radial-gradient( #{$colorStops} );
+}

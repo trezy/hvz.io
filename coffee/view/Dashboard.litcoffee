@@ -1,9 +1,21 @@
 # Dashboard
 
-    define ['jquery', 'underscore', 'backbone', 'hbs!tpl/dashboard'], (jquery, _, Backbone, tpl_dashboard) ->
+    define ['jquery', 'underscore', 'backbone', 'm/Player', 'hbs!tpl/Dashboard'], (jquery, _, Backbone, PlayerModel, DashboardTemplate) ->
       class Dashboard extends Backbone.View
         el: 'main'
-        render: ->
-          @$el.html tpl_dashboard()
         initialize: ->
-          @render()
+          @player = new PlayerModel()
+          console.log @player
+          @$el.html DashboardTemplate
+            infectionDuration: @player.get 'infectionDuration'
+            status: @player.get 'status'
+            recentlyFallen: [{
+              name: 'Bob the Builder'
+              timeSinceDeath: 1400618895
+            }, {
+              name: 'Bob the Builder'
+              timeSinceDeath: 1400618895
+            }, {
+              name: 'Bob the Builder'
+              timeSinceDeath: 1400618895
+            }]

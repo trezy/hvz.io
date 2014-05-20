@@ -3,7 +3,7 @@
  */
 
 menu {
-  @include radial-gradient ( ellipse farthest-side at 50% 0, rgba( 255, 255, 255, 0.3 ) 0%, rgba(0, 0, 0, 1 ) 100% );
+  @include radial-gradient ( ellipse farthest-side at 50% 0, rgba( 255, 255, 255, 0.3 ) 0%, rgba( 0, 0, 0, 1 ) 100% );
 
   background-color: #000;
   color: #fff;

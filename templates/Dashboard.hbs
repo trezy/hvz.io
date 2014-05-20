@@ -1,0 +1,19 @@
+<section>
+  <header>Infection Duration</header>
+  {{infectionDuration}}
+</section>
+<section>
+  <header>Status</header>
+  {{status}}
+</section>
+<section>
+  <header>Recently Fallen</header>
+  <ul>
+    {{#each recentlyFallen}}
+      <li>
+        {{name}}
+        {{timeSinceDeath}}
+      </li>
+    {{/each}}
+  </ul>
+</section>

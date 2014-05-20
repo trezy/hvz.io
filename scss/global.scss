@@ -2,9 +2,10 @@
   hvz.io
 \******************************/
 
-@import 'variables';
-@import 'mixins';
-@import 'reset';
-@import 'libraries';
-@import 'fonts';
+@import 'core/variables';
+@import 'core/mixins';
+@import 'core/reset';
+@import 'core/libraries';
+@import 'core/fonts';
 @import 'base';
+@import 'views';

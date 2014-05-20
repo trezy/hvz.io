@@ -1,6 +1,3 @@
-/*
- * Long-winded declarations
- */
 @mixin font-face ( $fontName, $fontFile: $fontName, $fontWeight: normal, $fontStyle: normal ) {
   @font-face {
     font-family: $fontName;
@@ -12,17 +9,4 @@
     font-weight: $fontWeight;
     font-style: $fontStyle;
   }
-}
-
-/*
- * Cross browser support
- */
-@mixin radial-gradient ( $colorStops... ) {
-  $browserPrefixes: ( -moz-, -o-, -webkit- );
-
-  @each $browserPrefix in $browserPrefixes {
-    background-image: #{$browserPrefix}radial-gradient( #{$colorStops} );
-  };
-
-  background-image: radial-gradient( #{$colorStops} );
 }

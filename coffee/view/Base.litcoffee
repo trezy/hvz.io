@@ -1,9 +1,9 @@
 # Base
 
-    define ['jquery', 'underscore', 'backbone', 'hbs!tpl/base'], (jquery, _, Backbone, tpl_base) ->
+    define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Base'], (jquery, _, Backbone, BaseTemplate) ->
       class Base extends Backbone.View
         el: 'body'
         render: ->
-          @$el.html tpl_base()
+          @$el.html BaseTemplate()
         initialize: ->
           @render()

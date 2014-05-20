@@ -1,9 +1,9 @@
 # Menubar
 
-    define ['jquery', 'underscore', 'backbone', 'hbs!tpl/menubar'], (jquery, _, Backbone, tpl_menubar) ->
+    define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Menubar'], (jquery, _, Backbone, MenubarTemplate) ->
       class Menubar extends Backbone.View
         el: 'menu.menu-bar'
         render: ->
-          @$el.html tpl_menubar()
+          @$el.html MenubarTemplate()
         initialize: ->
           @render()

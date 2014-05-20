@@ -9,6 +9,12 @@ html, body {
   width: 100%;
 }
 
+/* Headings */
+h1, h2, h3 {}
+
+header {}
+
+/* Forms */
 button {
   cursor: pointer;
 }
@@ -18,6 +24,3 @@ button {
   display: block;
   float: right;
 }
-
-@import 'loading';
-@import 'menubar';

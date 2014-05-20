@@ -43,6 +43,11 @@ module.exports = (grunt) ->
 # Some of our files don't need to be compiled but we still want to keep them in our project root to maintain separation of concerns. We'll just copy these files directly from the project root to the `build/` folder.
 
     copy:
+      fonts:
+        expand: true
+        cwd: 'scss/'
+        src: 'fonts/*'
+        dest: 'build/css/'
       libraries:
         expand: true
         cwd: 'bower_components/'
@@ -86,6 +91,9 @@ module.exports = (grunt) ->
       coffeelint:
         files: 'coffee/**/*.litcoffee'
         tasks: 'coffeelint:app'
+      fonts:
+        files: 'scss/fonts/**/*'
+        tasks: 'copy:fonts'
       img:
         files: 'images/*.{png,jpg,gif}'
         tasks: 'imagemin:dynamic'
@@ -114,6 +122,7 @@ module.exports = (grunt) ->
     'clean:build'
     'coffeelint:app'
     'sass:dev'
+    'copy:fonts'
     'copy:libraries'
     'copy:templates'
     'imagemin:dynamic'
