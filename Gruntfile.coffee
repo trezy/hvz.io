@@ -5,10 +5,19 @@ module.exports = (grunt) ->
   appnamespace = 'hvz'
 
   grunt.initConfig
-    pkg: grunt.file.readJSON 'package.json'
+    pkg: grunt.file.readJSON('package.json')
 
 # Tasks
 # Tasks in Grunt can do almost *anything*. We'll use them to compile the projects Sass files, compress files for production, and run unit tests. To do this we'll first pass individual types of tasks - i.e. compile Sass, concatenate scripts, etc. - as objects to Grunt's `initConfig` method. Later we'll create more complex tasks by chaining subsets of these original task objects.
+
+# Clean
+
+    clean:
+      build: [
+        'build/**/*'
+        '!build/index.html'
+        '!build/.gitignore'
+      ]
 
 # CoffeeLint
 
@@ -49,13 +58,9 @@ module.exports = (grunt) ->
     imagemin:
       dynamic:
         files: [
-          cwd: 'images'
           expand: true
-          src: [
-            '*.png'
-            '*.jpg'
-            '*.gif'
-          ]
+          cwd: 'images'
+          src: '*.{png,jpg,gif}'
           dest: 'build/img'
         ]
 
@@ -98,6 +103,7 @@ module.exports = (grunt) ->
 # We'll need to load all of the plugins for the tasks listed above. We can do this using Grunt's `loadNpmTasks` method.
 
   grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-imagemin'
@@ -105,9 +111,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
   grunt.registerTask 'build', [
+    'clean:build'
     'coffeelint:app'
+    'sass:dev'
     'copy:libraries'
     'copy:templates'
-    'sass:dev'
     'imagemin:dynamic'
   ]
