@@ -3,7 +3,7 @@
     define ['underscore', 'backbone'], (_, Backbone) ->
       class Player extends Backbone.Model
         defaults:
-          mod: false
+          moderator: false
           zombie: false
           gamesWon: 0
           gamesLost: 0
