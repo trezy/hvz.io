@@ -1,5 +1,7 @@
 #!/bin/bash
 
+build=false
+
 while [ "$1" != "" ]; do
   case $1 in
     --build | -b )  build=true
