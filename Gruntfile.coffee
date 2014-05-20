@@ -97,7 +97,7 @@ module.exports = (grunt) ->
         tasks: 'sass:dev'
       templates:
         files: 'templates/*'
-        tasks: 'copy:main'
+        tasks: 'copy:templates'
 
 # Plugins
 # We'll need to load all of the plugins for the tasks listed above. We can do this using Grunt's `loadNpmTasks` method.
