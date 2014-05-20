@@ -17,14 +17,17 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "backbone": "latest",
+    "fontawesome": "latest",
     "handlebars": "latest",
     "jquery": "latest",
     "jquery.qrcode": "latest",
-    "require-cs": "latest",
-    "require-handlebars-plugin": "latest",
     "requirejs": "latest",
     "underscore": "latest"
+  },
+  "devDependencies": {
+    "require-cs": "latest",
+    "require-handlebars-plugin": "latest"
   }
 }

@@ -2,10 +2,10 @@
 # [Grunt](http://gruntjs.com) is, in its simplest form, a task runner. We'll use our Gruntfile to import our Node `package.json` file *<-why?*, then we'll import our tasks.
 
 module.exports = (grunt) ->
-  appNamespace = 'hvz'
+  appnamespace = 'hvz'
 
   grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
+    pkg: grunt.file.readJSON 'package.json'
 
 # Tasks
 # Tasks in Grunt can do almost *anything*. We'll use them to compile the projects Sass files, compress files for production, and run unit tests. To do this we'll first pass individual types of tasks - i.e. compile Sass, concatenate scripts, etc. - as objects to Grunt's `initConfig` method. Later we'll create more complex tasks by chaining subsets of these original task objects.
@@ -34,11 +34,14 @@ module.exports = (grunt) ->
 # Some of our files don't need to be compiled but we still want to keep them in our project root to maintain separation of concerns. We'll just copy these files directly from the project root to the `build/` folder.
 
     copy:
-      main:
-        files: [
-          src: 'templates/*'
-          dest: 'build/js/'
-        ]
+      libraries:
+        expand: true
+        cwd: 'bower_components/'
+        src: '**'
+        dest: 'build/lib/'
+      templates:
+        src: 'templates/*'
+        dest: 'build/js/'
 
 # Image Minification
 # Since we're already in the business of optimizing everything for bandwidth, we'll keep that trend up with `imagemin`. This task will take all of the images in the `img/` folder and optimize them using any means available. The resulting files will be put end up in `build/img/`.
@@ -78,15 +81,18 @@ module.exports = (grunt) ->
       coffeelint:
         files: 'coffee/**/*.litcoffee'
         tasks: 'coffeelint:app'
-      copy:
-        files: 'templates/*'
-        tasks: 'copy:main'
       img:
         files: 'images/*.{png,jpg,gif}'
         tasks: 'imagemin:dynamic'
+      libraries:
+        files: 'bower_components/*'
+        tasks: 'copy:libraries'
       sass:
         files: 'scss/**/*.scss'
         tasks: 'sass:dev'
+      templates:
+        files: 'templates/*'
+        tasks: 'copy:main'
 
 # Plugins
 # We'll need to load all of the plugins for the tasks listed above. We can do this using Grunt's `loadNpmTasks` method.
@@ -98,4 +104,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
-  grunt.registerTask 'build', ['coffeelint:app', 'copy:main', 'sass:dev', 'imagemin:dynamic']
+  grunt.registerTask 'build', [
+    'coffeelint:app'
+    'copy:libraries'
+    'copy:templates'
+    'sass:dev'
+    'imagemin:dynamic'
+  ]

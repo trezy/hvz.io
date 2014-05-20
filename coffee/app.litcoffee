@@ -13,14 +13,15 @@ To [RequireJS](http://requirejs.org) is a Javascript dependency manager. The Req
     require.config
       paths:
         # RequireJS Plugins
-        'hbs': 'lib/require-handlebars-plugin/hbs'
+        'hbs': '../lib/require-handlebars-plugin/hbs'
         # Libraries
-        'backbone': 'lib/backbone/backbone'
-        'handlebars': 'lib/handlebars/handlebars'
-        'jquery': 'lib/jquery/dist/jquery'
-        'qrcode': 'lib/jquery.qrcode/src/jquery.qrcode.js'
+        'backbone': '../lib/backbone/backbone'
+        'handlebars': '../lib/handlebars/handlebars'
+        'jquery': '../lib/jquery/dist/jquery'
+        'qrcode': '../lib/jquery.qrcode/src/jquery.qrcode.js'
+        'underscore': '../lib/underscore/underscore'
+        # Templates
         'tpl': 'templates'
-        'underscore': 'lib/underscore/underscore'
         # Module Types
         'c': 'controller'
         'm': 'model'
