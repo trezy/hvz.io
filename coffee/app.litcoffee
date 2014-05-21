@@ -36,7 +36,7 @@ To [RequireJS](http://requirejs.org) is a Javascript dependency manager. The Req
           exports: 'Handlebars'
       hbs:
         disableI18n: true
-        partialsUrl: 'templates'
+        partialsUrl: 'partial'
 
 ## Initialize
 

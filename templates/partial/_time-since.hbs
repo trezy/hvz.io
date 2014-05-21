@@ -1,0 +1,17 @@
+<span class="time-since">
+  {{#if day}}
+    <span class="day">
+      {{day}}{{#if longLabels}}days{{else}}d{{/if}}
+    </span>
+  {{/if}}
+  {{#if hour}}
+    <span class="hour">
+      {{hour}}{{#if longLabels}}hours{{else}}h{{/if}}
+    </span>
+  {{/if}}
+  {{#if minute}}
+    <span class="minute">
+      {{minute}}{{#if longLabels}}minutes{{else}}m{{/if}}
+    </span>
+  {{/if}}
+</span>
