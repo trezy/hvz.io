@@ -32,14 +32,14 @@ You *must* have the following software installed to compile the application:
 In a terminal, change to the project directory and run the following commands:
 
 1. Install Grunt CLI and Bower globally
-    `npm install -g grunt-cli bower`
+  * `npm install -g grunt-cli bower`
 1. Install Node dependencies
-    `npm install`
+  * `npm install`
 1. Install Javascript dependencies
-    `bower install`
+  * `bower install`
 1. Compile all of our files into the `build/` directory
-    `grunt build`
-    `./coffee.sh -b`
+  * `grunt build`
+  * `./coffee.sh -b`
 
 ### Running the app
 
