@@ -19,8 +19,6 @@ This project is primarily written in Javascript. Our development dependencies ar
 
 ## Compiling
 
-Compiling the application is complicated but I hope to improve the process soon.
-
 ### Prerequisites
 
 You *must* have the following software installed to compile the application:
@@ -29,22 +27,22 @@ You *must* have the following software installed to compile the application:
 
 ### Compiling the the project
 
-In a terminal, change to the project directory and run the following commands:
-
-1. Install Grunt CLI and Bower globally
-  * `npm install -g grunt-cli bower`
-1. Install Node dependencies
-  * `npm install`
-1. Install Javascript dependencies
-  * `bower install`
-1. Compile all of our files into the `build/` directory
-  * `grunt build`
-  * `./coffee.sh -b`
+Whether this is the first time you've built the application or you've done it several times already, you can run `./hvz -b`. This will run `npm install` and `bower install` if it needs too, then it will run the Grunt `build` task to make sure your project and compile your Coffeescript files to make sure the project is ready to go. For more information on the `hvz` script, check out the section on it below.
 
 ### Running the app
 
-The application is written in [Literate Coffeescript]() which, unfortunately, Grunt doesn't support very well yet. Instead of using our Gruntfile to watch our Coffeescript files we need to run the `coffee.sh` file in the project root. This will immediately compile all of our Javascript to the `build/` directory and then recompile files when they are changed.
+~~The application is written in [Literate Coffeescript]() which, unfortunately, Grunt doesn't support very well yet. Instead of using our Gruntfile to watch our Coffeescript files we need to run the `coffee.sh` file in the project root. This will immediately compile all of our Javascript to the `build/` directory and then recompile files when they are changed.~~
 
-We have several other tasks we need to accomplish: compile and watch our Sass files; minify images and copy them to the `build/` directory; lint our Coffeescript files. We can take care of all of those with `grunt watch`.
+~~We have several other tasks we need to accomplish: compile and watch our Sass files; minify images and copy them to the `build/` directory; lint our Coffeescript files. We can take care of all of those with `grunt watch`.~~
 
-If you're not setting the application up on a web server then you may want to run the internal server with `grunt connect`.
+~~If you're not setting the application up on a web server then you may want to run the internal server with `grunt connect`.~~
+
+All of the tasks above have been updated to make this whole thing much simpler.
+
+## The `hvz` script
+
+This handy little shell script can handle every aspect of building and running the application.
+
+### Options
+
+* `**--build / -b**` The `build` flag will run every

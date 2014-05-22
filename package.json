@@ -18,6 +18,7 @@
   "devDependencies": {
     "coffee-script": "latest",
     "coffeelint": "latest",
+    "load-grunt-config": "latest",
     "grunt": "latest",
     "grunt-coffeelint": "latest",
     "grunt-contrib-imagemin": "latest",
@@ -26,6 +27,10 @@
     "grunt-contrib-handlebars": "latest",
     "grunt-contrib-clean": "latest",
     "grunt-contrib-connect": "latest",
-    "grunt-contrib-copy": "latest"
+    "grunt-contrib-copy": "latest",
+    "grunt-newer": "latest",
+    "time-grunt": "latest",
+    "grunt-concurrent": "^0.5.0",
+    "grunt-contrib-coffee": "^0.10.1"
   }
 }

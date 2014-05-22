@@ -1,0 +1,215 @@
+#!/bin/bash
+
+# Setting some default values
+githookpath=".git/hooks/post-update"
+interactive=false
+runinstallers=false
+updatelockfile=false
+
+
+
+
+
+# Helper functions
+function echo2 {
+  length=${#1}
+  lineend=0
+  if [ $length = 0 ]; then
+    echo ""
+  else
+    while [ $lineend -lt $length ]; do
+      echo ${1:$lineend:80}
+      lineend=$(($lineend+80))
+    done
+  fi
+}
+
+
+
+
+
+# Installer functions
+function updateGitHooks {
+  yepnope="y"
+  echo2 "### post-update hook ###"
+
+  if [ $interactive = true ]; then
+    if [ ! -e $githookpath ]; then
+      echo2 "Would you like tme to install a Git hook that will automagically run 'npm install' and 'bower install' when they need to be run? It's generally a good idea to but the choice is yours. y/n"
+      echo -n "> "
+      read yepnope
+      echo2 ""
+    else
+      if [ $githookpath -ot setup ]; then
+        echo2 "Uh oh... It looks like your post-update hook is out of date. Would you like to update it? y/n"
+        echo -n "> "
+        read yepnope
+        echo2 ""
+      elif [ $githookpath -nt setup ]; then
+        echo2 "Looks like your post-update hook is still good!"
+        echo2 ""
+      fi
+    fi
+  fi
+
+  if [ $yepnope = "y" ]; then
+    echo2 "Updating the post-update hook..."
+    cp setup .git/hooks/post-update
+    echo2 "Done."
+    echo2 ""
+  else
+    echo2 "Skipping post-update hook update."
+    echo2 ""
+  fi
+}
+
+function updateLockFile {
+  yepnope="y"
+  echo2 "### lock file ###"
+  echo2 "Checking for a lock file..."
+
+  if [ $interactive = true ]; then
+    if [ ! -e build/.lock ]; then
+      echo2 "No lock file found, looks like this is a new build. The installers should be run to make sure the necessary dependencies are installed and up to date. Would you like me to do that?"
+      echo -n "> "
+      read yepnope
+      echo2 ""
+
+      if [ $yepnope = "y" ]; then
+        runinstallers=true
+        updatelockfile=true
+      else
+        echo2 "Skipping the installers."
+        echo2 ""
+      fi
+
+    elif [ build/.lock -ot setup ]; then
+      echo2 "We found a lock file but it looks like it's older than this script. That probably means there have been a few changes. he installers should be run to make sure the necessary dependencies are installed and up to date. Would you like me to do that?"
+      echo -n "> "
+      read yepnope
+      echo2 ""
+
+      if [ $yepnope = "y" ]; then
+        runinstallers=true
+        updatelockfile=true
+      else
+        echo2 "Skipping the installers."
+        echo2 ""
+      fi
+
+    else
+      echo2 "Looks like your lock file is still good!"
+      echo2 ""
+    fi
+  elif [ ! -e build/.lock ] || [ build/.lock -ot setup ]; then
+    runinstallers=true
+    updatelockfile=true
+  fi
+
+  if [ $runinstallers = true ]; then
+    installNodeJSDependencies
+    installJavascriptDependencies
+  fi
+
+  if [ $updatelockfile = true ]; then
+    echo -n "Updating the lock file..."
+    touch build/.lock
+    echo2 "Done."
+    echo2 ""
+  fi
+}
+
+function installNodeJSDependencies {
+  echo2 "### NodeJS ###"
+  echo2 "Installing NodeJS dependencies with npm... "
+  npm install
+  echo2 "Done."
+  echo2 ""
+}
+
+function installJavascriptDependencies {
+  echo2 "### Bower ###"
+  echo2 "Installing Javascript dependencies with Bower... "
+  bower install
+  echo2 "Done."
+  echo2 ""
+}
+
+function buildGrunt {
+  yepnope="y"
+
+  if [ $interactive = true ]; then
+    echo2 "### Grunt ###"
+    echo2 "Grunt will compile the project into your 'build/' directory. You can also run Grunt manually at any time with the 'grunt' command. Would you like me to do that now?"
+    echo -n "> "
+    read yepnope
+    echo2 ""
+  else
+    yepnope="y"
+  fi
+
+  if [ $yepnope ]; then
+    echo2 "Running Grunt..."
+    grunt
+    echo2 "Done."
+    echo2 ""
+  else
+    echo2 "Skipping Grunt."
+  fi
+}
+
+
+
+
+
+# If we're running from the Git hook then we need to drop down to the root of the repository
+if [ -e post-update ]; then
+  cd ../../
+fi
+
+# Check for the interactive flag
+if [ "$1" != "" ] && [ $1 = "-i" ]; then
+  interactive=true
+fi
+
+# The build function takes care of pretty much everything else
+if [ -e $githookpath ] && [ $githookpath -nt setup ]; then
+  echo2 "It looks like this script has already done everything it needs to. Running it again could cause issues. Are you sure you want to continue? y/n"
+  echo -n "> "
+  read yepnope
+  echo2 ""
+
+  if [ $yepnope = "n" ]; then
+    echo2 "Phew, good call. Canceling..."
+    exit 1
+  else
+    echo2 "Don't say I didn't warn you..."
+    echo2 ""
+    updateGitHooks
+    updateLockFile
+    buildGrunt
+  fi
+elif [ $interactive = true ]; then
+  echo2 ""
+  echo2 "## hvz.io setup helper ##"
+  echo2 "Hiyo! I'm here to setup some critical 'hvz.io' development features. Let's start by installing some Git hooks..."
+  echo2 ""
+  updateGitHooks
+
+  echo2 "Awesome. Now let's make sure your lock file is good to go..."
+  echo2 ""
+  updateLockFile
+
+  echo2 "Sweet. Finally we need to compile the project..."
+  echo2 ""
+  buildGrunt
+
+else
+  updateGitHooks
+  updateLockFile
+  buildGrunt
+fi
+
+echo2 "All done!"
+
+exit 0
