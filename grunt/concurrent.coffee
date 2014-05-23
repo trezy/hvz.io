@@ -14,6 +14,6 @@ module.exports =
     'newer:imagemin'
   ]
   server: [
-    'watch'
     'connect'
+    'watch'
   ]

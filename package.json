@@ -30,7 +30,7 @@
     "grunt-contrib-copy": "latest",
     "grunt-newer": "latest",
     "time-grunt": "latest",
-    "grunt-concurrent": "^0.5.0",
-    "grunt-contrib-coffee": "^0.10.1"
+    "grunt-concurrent": "latest",
+    "grunt-contrib-coffee": "latest"
   }
 }

@@ -102,6 +102,8 @@ function updateLockFile {
       echo2 ""
     fi
   elif [ ! -e build/.lock ] || [ build/.lock -ot setup ]; then
+    echo2 "Your lock file either hasn't been created or is out of date."
+    echo2 ""
     runinstallers=true
     updatelockfile=true
   fi

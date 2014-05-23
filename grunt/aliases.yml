@@ -9,9 +9,9 @@ default:
   - 'coffeelint'
   - 'newer:coffee:dev'
   - 'newer:sass:dev'
-  - 'newer:copy:fonts'
-  - 'newer:copy:libraries'
-  - 'newer:copy:templates'
+  - 'copy:fonts'
+  - 'copy:libraries'
+  - 'copy:templates'
   - 'newer:imagemin'
 
 # Concurrent
