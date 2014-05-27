@@ -1,0 +1,41 @@
+/*  Menu Bar
+ *  _menubar.scss
+ */
+
+.site-nav {
+  @include transform (translateX(-100%));
+
+  background-color: #eee;
+  bottom: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: -moz-transform .2s;
+  transition: -o-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  width: 90%;
+
+  a {
+    border-bottom: 1px solid #fff;
+    color: #000;
+    display: block;
+    font-size: 1.5em;
+    padding: 0.5rem;
+    text-decoration: none;
+    text-indent: 0;
+    text-transform: lowercase;
+    transition: text-indent .2s;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-indent: 0.5rem;
+    }
+  }
+
+  &.open {
+    @include transform (translateX(0));
+  }
+}

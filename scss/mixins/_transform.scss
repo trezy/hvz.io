@@ -1,0 +1,9 @@
+@mixin transform ( $transforms... ) {
+  $browserPrefixes: ( -moz-, -o-, -webkit- );
+
+  @each $browserPrefix in $browserPrefixes {
+    #{$browserPrefix}transform: #{$transforms};
+  };
+
+  transform: #{$transforms};
+}
