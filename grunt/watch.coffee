@@ -4,10 +4,7 @@
 module.exports =
   coffee:
     files: 'coffee/**/*.coffee'
-    tasks: 'coffee:dev'
-  coffeelint:
-    files: 'coffee/**/*.coffee'
-    tasks: 'coffeelint:dev'
+    tasks: ['coffeelint', 'coffee:dev']
   fonts:
     files: 'scss/fonts/**/*'
     tasks: 'copy:fonts'

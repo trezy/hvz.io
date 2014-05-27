@@ -6,4 +6,4 @@ module.exports =
     options:
       base: 'build'
       keepalive: true
-      port: 9002
+      port: 9001
