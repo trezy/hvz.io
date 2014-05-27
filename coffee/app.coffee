@@ -28,12 +28,16 @@ require.config
     disableI18n: true
     partialsUrl: 'partial'
 
-require ['jquery', 'underscore', 'backbone', 'c/Router', 'v/Base', 'v/Menubar', 'v/SiteNav', 'v/Dashboard'], (jquery, _, Backbone, RouterController, BaseView, MenubarView, SiteNavView, DashboardView) ->
+require ['jquery', 'underscore', 'backbone', 'Router', 'v/Base', 'v/Menubar', 'v/Sitenav', 'v/Dashboard', 'm/Player'], (jquery, _, Backbone, Router, BaseView, MenubarView, SitenavView, DashboardView, PlayerModel) ->
+
+  hvz.vent = _.extend {}, Backbone.Events
+  hvz.router = new Router
+  hvz.player = new PlayerModel
+
   $ ->
-    router = new RouterController()
-    base = new BaseView()
-    menubar = new MenubarView()
-    sitenav = new SiteNavView router.routes
-    router.on 'route:dashboard', ->
-      dashboard = new DashboardView()
+    base = new BaseView
+    menubar = new MenubarView
+    sitenav = new SitenavView hvz.router.routes
+    hvz.router.on 'route:dashboard', ->
+      dashboard = new DashboardView
     Backbone.history.start()

@@ -10,5 +10,7 @@ define ['underscore', 'backbone'], (_, Backbone) ->
       gamesLost: 0
     kill: ->
       @set status: 'zombie'
+      hvz.vent.trigger 'playerKilled'
     initialize: ->
+      @vent = hvz.vent
       console.log 'New Player created.'
