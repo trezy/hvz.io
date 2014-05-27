@@ -24,6 +24,9 @@ This project is primarily written in Javascript. Our development dependencies ar
 You *must* have the following software installed to compile the application:
 
 * [NodeJS](http://nodejs.org)
+* [Grunt CLI](http://gruntjs.com)
+* [Bower](http://bower.io)
+* [Sass](http://sass-lang.com)
 
 ### Compiling the the project
 
@@ -39,10 +42,4 @@ Whether this is the first time you've built the application or you've done it se
 
 All of the tasks above have been updated to make this whole thing much simpler.
 
-## The `hvz` script
-
-This handy little shell script can handle every aspect of building and running the application.
-
-### Options
-
-* `**--build / -b**` The `build` flag will run every
+## The `setup` script

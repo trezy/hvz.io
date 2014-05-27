@@ -24,6 +24,30 @@ function echo2 {
   fi
 }
 
+function checkDependencies {
+  nodePath=$(command -v node)
+  npmPath=$(command -v npm)
+  bowerPath=$(command -v bower)
+  sassPath=$(command -v sass)
+
+  if [ "$nodePath" = "" ] || [ "$npmPath" = "" ] || [ "$bowerPath" = "" ] || [ "$sassPath" = "" ]; then
+    echo2 "You're missing some dependencies. Please install the following dependencies, then try running this script again:"
+    if [ "$nodePath" = "" ]; then
+      echo2 "  - NodeJS"
+    fi
+    if [ "$npmPath" = "" ]; then
+      echo2 "  - npm"
+    fi
+    if [ "$bowerPath" = "" ]; then
+      echo2 "  - Bower"
+    fi
+    if [ "$sassPath" = "" ]; then
+      echo2 "  - Sass"
+    fi
+    exit 1
+  fi
+}
+
 
 
 
@@ -70,7 +94,7 @@ function updateLockFile {
 
   if [ $interactive = true ]; then
     if [ ! -e build/.lock ]; then
-      echo2 "No lock file found, looks like this is a new build. The installers should be run to make sure the necessary dependencies are installed and up to date. Would you like me to do that?"
+      echo2 "No lock file found, looks like this is a new build. The installers should be run to make sure the necessary dependencies are installed and up to date. Would you like me to do that? y/n"
       echo -n "> "
       read yepnope
       echo2 ""
@@ -84,7 +108,7 @@ function updateLockFile {
       fi
 
     elif [ build/.lock -ot setup ]; then
-      echo2 "We found a lock file but it looks like it's older than this script. That probably means there have been a few changes. he installers should be run to make sure the necessary dependencies are installed and up to date. Would you like me to do that?"
+      echo2 "We found a lock file but it looks like it's older than this script. That probably means there have been a few changes. he installers should be run to make sure the necessary dependencies are installed and up to date. Would you like me to do that? y/n"
       echo -n "> "
       read yepnope
       echo2 ""
@@ -142,7 +166,7 @@ function buildGrunt {
 
   if [ $interactive = true ]; then
     echo2 "### Grunt ###"
-    echo2 "Grunt will compile the project into your 'build/' directory. You can also run Grunt manually at any time with the 'grunt' command. Would you like me to do that now?"
+    echo2 "Grunt will compile the project into your 'build/' directory. You can also run Grunt manually at any time with the 'grunt' command. Would you like me to do that now? y/n"
     echo -n "> "
     read yepnope
     echo2 ""
@@ -150,7 +174,7 @@ function buildGrunt {
     yepnope="y"
   fi
 
-  if [ $yepnope ]; then
+  if [ $yepnope = "y" ]; then
     echo2 "Running Grunt..."
     grunt
     echo2 "Done."
@@ -165,6 +189,9 @@ function buildGrunt {
 
 
 # If we're running from the Git hook then we need to drop down to the root of the repository
+
+checkDependencies
+
 if [ -e post-update ]; then
   cd ../../
 fi
