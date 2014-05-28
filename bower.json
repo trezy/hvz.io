@@ -24,7 +24,8 @@
     "jquery": "latest",
     "jquery.qrcode": "latest",
     "requirejs": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
+    "momentjs": "latest"
   },
   "devDependencies": {
     "require-cs": "latest",

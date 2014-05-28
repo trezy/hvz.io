@@ -5,8 +5,19 @@ module.exports =
     options:
       bare: true
       sourceMap: true
-    expand: true
-    cwd: 'coffee'
-    src: ['**/*.coffee']
-    dest: 'build/js/'
-    ext: '.js'
+    files: [{
+      expand: true
+      cwd: 'coffee'
+      src: [
+        '**/*.coffee'
+        '!helper/**/*'
+      ]
+      dest: 'build/js/'
+      ext: '.js'
+    }, {
+      expand: true
+      cwd: 'coffee/helper'
+      src: ['**/*.coffee']
+      dest: 'templates/helpers'
+      ext: '.js'
+    }]

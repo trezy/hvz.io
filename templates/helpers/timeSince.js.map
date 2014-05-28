@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "timeSince.js",
+  "sourceRoot": "../../coffee/helper/",
+  "sources": [
+    "timeSince.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,MAAA,CAAO,CAAC,YAAD,CAAP,EAAuB,SAAC,UAAD,GAAA;SACrB,UAAU,CAAC,cAAX,CAA0B,WAA1B,EAAuC,SAAC,GAAD,GAAA;AACrC,IAAA,OAAO,CAAC,GAAR,CAAY,mBAAZ,CAAA,CAAA;WACA,MAAA,CAAA,CAAQ,CAAC,IAAT,CAAc,GAAd,EAFqC;EAAA,CAAvC,EADqB;AAAA,CAAvB,CAAA,CAAA"
+}

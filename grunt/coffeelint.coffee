@@ -7,4 +7,6 @@ module.exports =
   dev: [
     'coffee/**/*.coffee'
     'coffee/**/*.litcoffee'
+    'templates/helpers/**/*.coffee'
+    'templates/helpers/**/*.litcoffee'
   ]

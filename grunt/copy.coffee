@@ -13,5 +13,5 @@ module.exports =
     src: '**'
     dest: 'build/lib/'
   templates:
-    src: 'templates/*'
+    src: 'templates/**/*'
     dest: 'build/js/'

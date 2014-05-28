@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "dateFormat.js",
+  "sourceRoot": "../../coffee/helper/",
+  "sources": [
+    "dateFormat.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,MAAA,CAAO,+BAAP,EAAwC,CAAC,YAAD,CAAxC,EAAwD,SAAC,UAAD,GAAA;SACtD,UAAU,CAAC,cAAX,CAA0B,YAA1B,EAAwC,SAAC,OAAD,EAAU,KAAV,GAAA;AACtC,QAAA,MAAA;AAAA,IAAA,MAAA,GAAS,KAAK,CAAC,IAAI,CAAC,MAAX,IAAqB,cAA9B,CAAA;WACA,MAAA,CAAO,OAAP,CAAe,CAAC,MAAhB,CAAuB,MAAvB,EAFsC;EAAA,CAAxC,EADsD;AAAA,CAAxD,CAAA,CAAA"
+}

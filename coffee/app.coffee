@@ -8,7 +8,8 @@ require.config
     'backbone': '../lib/backbone/backbone'
     'handlebars': '../lib/handlebars/handlebars'
     'jquery': '../lib/jquery/dist/jquery'
-    'qrcode': '../lib/jquery.qrcode/src/jquery.qrcode.js'
+    'moment': '../lib/momentjs/moment'
+    'qrcode': '../lib/jquery.qrcode/src/jquery.qrcode'
     'underscore': '../lib/underscore/underscore'
     # Templates
     'tpl': 'templates'

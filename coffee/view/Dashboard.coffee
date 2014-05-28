@@ -1,7 +1,6 @@
-define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Dashboard'], (jquery, _, Backbone, DashboardTemplate) ->
+define ['jquery', 'underscore', 'backbone', 'moment', 'hbs!tpl/Dashboard'], (jquery, _, Backbone, moment, DashboardTemplate) ->
   class Dashboard extends Backbone.View
     el: 'main'
-    player: hvz.player
 
     render: =>
       @$el.html DashboardTemplate
@@ -9,16 +8,15 @@ define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Dashboard'], (jquery, _, Ba
         status: hvz.player.get 'status'
         recentlyFallen: [{
           name: 'Bob the Builder'
-          timeSinceDeath: 1400618895
+          timeOfDeath: 1401238410457
         }, {
           name: 'Bob the Builder'
-          timeSinceDeath: 1400618896
+          timeOfDeath: 1401238410454
         }, {
           name: 'Bob the Builder'
-          timeSinceDeath: 1400618897
+          timeOfDeath: 1401238410450
         }]
 
     initialize: =>
       @render()
-
       hvz.vent.on 'playerKilled', @render
