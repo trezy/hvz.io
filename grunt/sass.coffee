@@ -6,9 +6,9 @@ module.exports =
     options:
       style: 'expanded'
     files:
-      'build/css/app.css': 'scss/global.scss'
+      'build/css/app.css': 'source/scss/global.scss'
   dist:
     options:
       style: 'compressed'
     files:
-      'build/css/app.css': 'scss/global.scss'
+      'build/css/app.css': 'source/scss/global.scss'

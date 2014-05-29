@@ -16,24 +16,22 @@
     "url": "https://github.com/trezy/hvz.io/issues"
   },
   "dependencies": {
+    "coffee-script": "latest",
     "express": "latest"
   },
   "devDependencies": {
-    "coffee-script": "latest",
     "coffeelint": "latest",
     "load-grunt-config": "latest",
     "grunt": "latest",
     "grunt-coffeelint": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-handlebars": "latest",
     "grunt-contrib-imagemin": "latest",
     "grunt-contrib-sass": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-contrib-handlebars": "latest",
-    "grunt-contrib-clean": "latest",
-    "grunt-contrib-connect": "latest",
-    "grunt-contrib-copy": "latest",
     "grunt-newer": "latest",
-    "time-grunt": "latest",
-    "grunt-concurrent": "latest",
-    "grunt-contrib-coffee": "latest"
+    "time-grunt": "latest"
   }
 }
