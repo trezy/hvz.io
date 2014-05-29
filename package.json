@@ -16,7 +16,7 @@
     "url": "https://github.com/trezy/hvz.io/issues"
   },
   "dependencies": {
-    "express": "^4.3.2"
+    "express": "latest"
   },
   "devDependencies": {
     "coffee-script": "latest",

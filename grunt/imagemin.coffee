@@ -5,7 +5,7 @@ module.exports =
   dev:
     files: [
       expand: true
-      cwd: 'images'
-      src: '*.{png,jpg,gif}'
-      dest: 'build/img'
+      cwd: 'source/images/'
+      src: '**/*'
+      dest: 'build/img/'
     ]

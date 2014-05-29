@@ -5,6 +5,6 @@ module.exports =
   options:
     configFile: '.coffeelint'
   dev: [
-    'coffee/**/*.coffee'
-    'coffee/**/*.litcoffee'
+    'source/coffee/**/*.coffee'
+    'source/coffee/**/*.litcoffee'
   ]
