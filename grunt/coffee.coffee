@@ -6,7 +6,7 @@ module.exports =
       bare: true
       sourceMap: true
     expand: true
-    cwd: 'coffee'
+    cwd: 'source/coffee/'
     src: ['**/*.coffee']
     dest: 'build/js/'
     ext: '.js'

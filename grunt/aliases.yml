@@ -14,22 +14,8 @@ default:
   - 'copy:templates'
   - 'newer:imagemin'
 
-# Concurrent
-# This is currently just a test to see if we can speed up the Grunt build even more by running tasks concurrently. So far it's actually increased our build time. However, I think it'll be beneficial once we have a larger codebase so I'm leaving it in for now.
-
-concurrentTest:
-  - 'concurrent:prep'
-  - 'concurrent:compilers'
-  - 'concurrent:copy'
-
 # Distribution
 # This task is for creating a build to be placed on a production server. It includes all of the compilation and optimization tasks, plus makes any necessary configuration changes.
 
 dist:
   - ''
-
-# Server
-# We'll use `grunt-concurrent` to run both the `watch` and `connect` tasks, allowing us to automagically recompile any files that we change AND keep a simple server running so we can immediately check out thos changes in the browser.
-
-server:
-  - 'concurrent:server'

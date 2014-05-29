@@ -17,7 +17,7 @@ This project is primarily written in Javascript. Our development dependencies ar
 * [Handlebars](http://handlebarsjs.com)
 * [Sass](http://sass-lang.com)
 
-## Compiling
+## Development
 
 ### Prerequisites
 
@@ -39,3 +39,7 @@ If you *do* have all of the required dependencies the `setup` script will run th
 1. **Compile the project with Grunt**
 
 You can also run the `setup` script with `-i` to enable interactive mode. In interactive mode the script will verify that you want to perform each task before it does. This may be useful if you don't want to perform certain tasks just yet.
+
+### Running the server
+
+Once the application has been compiled just change to the root directory and run `coffee server.coffee`. This will start up our ExpressJS server on port 3000.

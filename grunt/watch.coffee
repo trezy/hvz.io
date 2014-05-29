@@ -3,20 +3,20 @@
 
 module.exports =
   coffee:
-    files: 'coffee/**/*.coffee'
+    files: 'source/coffee/**/*.coffee'
     tasks: ['coffeelint', 'coffee:dev']
   fonts:
-    files: 'scss/fonts/**/*'
+    files: 'source/scss/fonts/**/*'
     tasks: 'copy:fonts'
   images:
-    files: 'images/*.{png,jpg,gif}'
+    files: 'source/images/**/*'
     tasks: 'imagemin:dynamic'
   libraries:
-    files: 'bower_components/*'
+    files: 'bower_components/**/*'
     tasks: 'copy:libraries'
   sass:
-    files: 'scss/**/*.scss'
+    files: 'source/scss/**/*'
     tasks: 'sass:dev'
   templates:
-    files: 'templates/*'
+    files: 'source/templates/**/*'
     tasks: 'copy:templates'

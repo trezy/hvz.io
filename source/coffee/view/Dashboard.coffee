@@ -19,6 +19,5 @@ define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Dashboard'], (jquery, _, Ba
         }]
 
     initialize: =>
-      @render()
-
       hvz.vent.on 'playerKilled', @render
+      @render()

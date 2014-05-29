@@ -4,14 +4,16 @@
 module.exports =
   fonts:
     expand: true
-    cwd: 'scss/'
-    src: 'fonts/*'
+    cwd: 'source/scss/'
+    src: 'fonts/**/*'
     dest: 'build/css/'
   libraries:
     expand: true
     cwd: 'bower_components/'
-    src: '**'
+    src: '**/*'
     dest: 'build/lib/'
   templates:
-    src: 'templates/*'
+    expand: true
+    cwd: 'source/'
+    src: 'templates/**/*'
     dest: 'build/js/'
