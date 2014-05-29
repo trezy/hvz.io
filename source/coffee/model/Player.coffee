@@ -1,4 +1,10 @@
-define ['underscore', 'backbone'], (_, Backbone) ->
+define [
+  'underscore'
+  'backbone'
+], (
+  _
+  Backbone
+) ->
   class Player extends Backbone.Model
     defaults:
       id: 0

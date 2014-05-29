@@ -1,4 +1,11 @@
-define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Dashboard'], (jquery, _, Backbone, DashboardTemplate) ->
+define [
+  'jquery', 'underscore', 'backbone', 'hbs!tpl/Dashboard'
+], (
+  $
+  _
+  Backbone
+  DashboardTemplate
+) ->
   class Dashboard extends Backbone.View
     el: 'main'
     player: hvz.player

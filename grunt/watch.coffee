@@ -1,5 +1,7 @@
 # Watch
-# Finally we'll want to set up a `watch` task. This will allow us to watch for changes in any of the files we'll be editing and automagically compile them when we save.
+# Finally we'll want to set up a `watch` task. This will allow us to watch for
+# changes in any of the files we'll be editing and automagically compile them
+# when we save.
 
 module.exports =
   coffee:

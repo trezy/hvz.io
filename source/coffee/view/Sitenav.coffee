@@ -1,4 +1,14 @@
-define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Sitenav'], (jquery, _, Backbone, SitenavTemplate) ->
+define [
+  'jquery'
+  'underscore'
+  'backbone'
+  'hbs!tpl/Sitenav'
+], (
+  $
+  _
+  Backbone
+  SitenavTemplate
+) ->
   class Sitenav extends Backbone.View
     el: 'nav.site-nav'
     events:

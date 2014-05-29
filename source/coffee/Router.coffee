@@ -1,4 +1,10 @@
-define ['underscore', 'backbone'], (_, Backbone) ->
+define [
+  'underscore'
+  'backbone'
+], (
+  _
+  Backbone
+) ->
   class Router extends Backbone.Router
     routes:
       '': 'dashboard'

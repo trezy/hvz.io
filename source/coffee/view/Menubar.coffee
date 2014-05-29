@@ -1,4 +1,14 @@
-define ['jquery', 'underscore', 'backbone', 'hbs!tpl/Menubar'], (jquery, _, Backbone, MenubarTemplate) ->
+define [
+  'jquery'
+  'underscore'
+  'backbone'
+  'hbs!tpl/Menubar'
+], (
+  $
+  _
+  Backbone
+  MenubarTemplate
+) ->
   class Menubar extends Backbone.View
     el: 'menu.menu-bar'
     events:
