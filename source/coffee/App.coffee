@@ -19,9 +19,10 @@ require.config
     # Templates
     'tpl': 'templates'
     # Module Types
-    'c': 'controller'
-    'm': 'model'
-    'v': 'view'
+    'ctrl': 'controllers'
+    'c': 'collections'
+    'm': 'models'
+    'v': 'views'
   shim:
     underscore:
       exports: '_'
@@ -32,33 +33,33 @@ require.config
       exports: 'Handlebars'
   hbs:
     disableI18n: true
-    partialsUrl: 'partial'
+    partialsUrl: 'partials'
 
-    
-    
-    
-    
+
+
+
+
 # Initialize the application
 require [
   'jquery'
   'underscore'
   'backbone'
-  'Router'
+  'ctrl/Router'
+  'm/Player'
   'v/Base'
   'v/Menubar'
   'v/Sitenav'
   'v/Dashboard'
-  'm/Player'
 ], (
   $
   _
   Backbone
   Router
+  PlayerModel
   BaseView
   MenubarView
   SitenavView
   DashboardView
-  PlayerModel
 ) ->
 
   hvz.vent = _.extend {}, Backbone.Events
